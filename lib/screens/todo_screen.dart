@@ -43,7 +43,7 @@ class ToDoScreen extends ConsumerWidget {
                       borderRadius: BorderRadius.zero,
                     ),
                   ),
-                  child: const Text('Todoy'),
+                  child: const Text('Today'),
                 ),
               ),
               Expanded(
@@ -67,7 +67,7 @@ class ToDoScreen extends ConsumerWidget {
           Expanded(
             child: PageView(
               controller: pageController,
-              children: <Widget>[
+              children: const <Widget>[
                 TodayTodoPage(),
                 Center(
                   child: Text('All'),
