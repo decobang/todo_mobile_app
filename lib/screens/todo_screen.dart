@@ -4,7 +4,7 @@ import 'package:todo_mobile_app/models/todo_items_model.dart';
 import 'package:todo_mobile_app/models/todo_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_mobile_app/screens/pages/today_todo_page.dart';
-import 'package:todo_mobile_app/widgets/add_todo_dialog.dart';
+import 'package:todo_mobile_app/screens/pages/add_todo_screen.dart';
 
 class ToDoScreen extends ConsumerWidget {
   const ToDoScreen({super.key});
@@ -12,7 +12,7 @@ class ToDoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final PageController pageController = PageController();
-  
+
     String getCurrentDate() {
       DateTime now = DateTime.now();
       String formattedDate = DateFormat('EEEE, MMMM d').format(now);
@@ -79,7 +79,11 @@ class ToDoScreen extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialog(context: context, builder: (context) => AddTodoDialog());
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => AddToDoScreen(),
+            ),
+          );
         },
         child: const Icon(Icons.add),
         backgroundColor: Colors.blue.shade300,
