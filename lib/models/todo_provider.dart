@@ -1,15 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_mobile_app/models/todo_items_model.dart';
 
-final todoProvider = StateNotifierProvider<TodoList, List<String>>((ref) => TodoList());
+final todoProvider = StateNotifierProvider<TodoList, List<TodoItem>>((ref) => TodoList());
 
-class TodoList extends StateNotifier<List<String>> {
+class TodoList extends StateNotifier<List<TodoItem>> {
   TodoList() : super([]);
 
-  void add(String item) {
+  void add(TodoItem item) {
     state = [...state, item];
   }
 
-  void remove(String item) {
-    state = state.where((element) => element != item).toList();
+  void remove(String itemId) {
+    state = state.where((element) => element.id != itemId).toList();
   }
 }

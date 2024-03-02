@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_mobile_app/models/todo_items_model.dart';
 import 'package:todo_mobile_app/models/todo_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_mobile_app/widgets/add_todo_dialog.dart';
@@ -10,7 +11,7 @@ class ToDoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final PageController pageController = PageController();
-    List<String> todoListItems = ref.watch(todoProvider);
+    List<TodoItem> todoListItems = ref.watch(todoProvider);
 
     String getCurrentDate() {
       DateTime now = DateTime.now();
@@ -32,7 +33,11 @@ class ToDoScreen extends ConsumerWidget {
             children: <Widget>[
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pageController.animateToPage(0,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut);
+                  },
                   style: TextButton.styleFrom(
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
@@ -43,7 +48,11 @@ class ToDoScreen extends ConsumerWidget {
               ),
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pageController.animateToPage(1,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut);
+                  },
                   style: TextButton.styleFrom(
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
