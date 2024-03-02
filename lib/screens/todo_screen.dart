@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_mobile_app/models/todo_items_model.dart';
 import 'package:todo_mobile_app/models/todo_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_mobile_app/screens/pages/today_todo_page.dart';
 import 'package:todo_mobile_app/widgets/add_todo_dialog.dart';
 
 class ToDoScreen extends ConsumerWidget {
@@ -11,8 +12,7 @@ class ToDoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final PageController pageController = PageController();
-    List<TodoItem> todoListItems = ref.watch(todoProvider);
-
+  
     String getCurrentDate() {
       DateTime now = DateTime.now();
       String formattedDate = DateFormat('EEEE, MMMM d').format(now);
@@ -68,9 +68,7 @@ class ToDoScreen extends ConsumerWidget {
             child: PageView(
               controller: pageController,
               children: <Widget>[
-                Center(
-                  child: Text('Todoy'),
-                ),
+                TodayTodoPage(),
                 Center(
                   child: Text('All'),
                 )
