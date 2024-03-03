@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_mobile_app/models/todo_items_model.dart';
 import 'package:todo_mobile_app/models/todo_provider.dart';
-import 'package:todo_mobile_app/utils/helper_functions.dart';
 import 'package:uuid/uuid.dart';
 
 class AddToDoScreen extends ConsumerWidget {
@@ -26,7 +25,8 @@ class AddToDoScreen extends ConsumerWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('New Task'),
-          backgroundColor: Colors.blue.shade300,
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
           shadowColor: Colors.black,
           elevation: 1,
         ),
@@ -94,7 +94,7 @@ class AddToDoScreen extends ConsumerWidget {
                   child: DatePicker(
                     DateTime.now(),
                     initialSelectedDate: itemToEdit?.dueDate ?? DateTime.now(),
-                    selectionColor: Colors.blue.shade300,
+                    selectionColor: Colors.blue,
                     selectedTextColor: Colors.white,
                     onDateChange: (date) {
                       dueDate = date;
@@ -106,7 +106,8 @@ class AddToDoScreen extends ConsumerWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blue.shade300,
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
           onPressed: () {
             if (formKey.currentState!.validate()) {
               if (!isEditingItem) {
