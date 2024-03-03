@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_mobile_app/models/todo_items_model.dart';
-import 'package:todo_mobile_app/models/todo_provider.dart';
-import 'package:intl/intl.dart';
 import 'package:todo_mobile_app/screens/pages/today_todo_page.dart';
 import 'package:todo_mobile_app/screens/pages/add_todo_screen.dart';
+import 'package:todo_mobile_app/utils/helper_functions.dart';
 
 class ToDoScreen extends ConsumerWidget {
   const ToDoScreen({super.key});
@@ -12,12 +10,6 @@ class ToDoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final PageController pageController = PageController();
-
-    String getCurrentDate() {
-      DateTime now = DateTime.now();
-      String formattedDate = DateFormat('EEEE, MMMM d').format(now);
-      return formattedDate;
-    }
 
     return Scaffold(
       appBar: AppBar(

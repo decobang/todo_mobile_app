@@ -14,7 +14,7 @@ class TodoList extends StateNotifier<List<TodoItem>> {
     state = state.where((element) => element.id != itemId).toList();
   }
 
-  void update(TodoItem item) {
+  void edit(TodoItem item) {
     state = state.map((e) => e.id == item.id ? item : e).toList();
   }
 }
