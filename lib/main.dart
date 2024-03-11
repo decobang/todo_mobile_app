@@ -9,14 +9,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  void function() {
+    print('Hello');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Todo App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ToDoScreen(),
+      home: const ToDoScreen(),
     );
   }
 }
